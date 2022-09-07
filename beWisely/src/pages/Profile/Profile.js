@@ -2,6 +2,7 @@ import React from "react";
 import { Image, Text, StyleSheet, Dimensions, View } from "react-native";
 import profileBG from '../../../assets/profileBg.png'
 import profilePic from '../../../assets/profilePic.png'
+import locationLogo from '../../../assets/locationVector.png'
 
 const width = Dimensions.get("screen").width
 
@@ -13,7 +14,10 @@ export default function Profile() {
     </View>
     <View style={estilos.divName}>
         <Text style={estilos.name}>Ricardo Faria</Text>
-        <Text>São Paulo, Brasil</Text>
+        <View style={estilos.divLocation}>
+            <Image source={locationLogo} style={estilos.gapLogo}/>
+            <Text>São Paulo, Brasil</Text>
+        </View>
     </View>
     </>
 }
@@ -25,24 +29,28 @@ const estilos = StyleSheet.create({
     imgProfile:{
         position: "absolute",
         top: 30,
-        display: "flex",
     },
     divTopo:{
         position: "relative",
-        display: "flex",
         alignItems: "center"
     },
     divName:{
-        display: "flex",
         alignItems: "center",
         marginTop: 15
     },
     name:{
         fontSize: 32,
         color: "#52665A",
-        weight: "bold"
+        fontWeight: "bold"
+    },
+    divLocation:{
+        flexDirection: "row",
+        alignItems: "center",     
     },
     location:{
-        fontSize: 15
+        fontSize: 15,
+    },
+    gapLogo:{
+        marginRight: 7
     }
 })
