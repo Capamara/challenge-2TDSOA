@@ -41,7 +41,7 @@ const estilos = StyleSheet.create({
     name:{
         fontSize: 32,
         color: "#52665A",
-        fontWeight: "bold"
+        fontWeight: "bold",
     },
     divLocation:{
         flexDirection: "row",
