@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import WelcomeImage from '../src/logoWelcome.svg'
+import WelcomeImage from '../assets/logoWelcome.svg'
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 export default function Welcome() {
