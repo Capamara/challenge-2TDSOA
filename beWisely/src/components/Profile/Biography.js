@@ -1,8 +1,5 @@
 import React from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
-import workLogo from '../../../assets/icons/workLogo.png'
-import studentLogo from '../../../assets/icons/studentLogo.png'
-import watchLogo from '../../../assets/icons/watchLogo.png'
 import Icon from "react-native-vector-icons/Entypo";
 
 export default function Biography() {
