@@ -3,13 +3,13 @@ import WelcomeImage from '../../assets/logoWelcome.png'
 import { Image, StyleSheet, Text, View } from 'react-native';
 import  Icon  from 'react-native-vector-icons/AntDesign';
 
-export default function Welcome() {
+export default function Welcome({navigation}) {
   return <>
     <View style={welcomeStyles.container}>
       <Text style={welcomeStyles.header}>Aprenda ou ensina de maneira prática e fácil</Text>
       {<Image source={WelcomeImage} style={welcomeStyles.image}/>}
       <Text style={welcomeStyles.description}>Seja aluno ou professor, a BeWisely vai te ajudar a alcançar seus objetivos</Text>
-      <Icon size={30}style={welcomeStyles.iconStyle}name='right'></Icon>
+      <Icon onPress={() => navigation.navigate('Signup')} size={30}style={welcomeStyles.iconStyle}name='right'></Icon>
       <StatusBar style="auto" />
     </View>
   </>
@@ -20,7 +20,8 @@ const welcomeStyles = StyleSheet.create({
     flexDirection:"column",
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: "100%"
   },
   image:{
     marginTop:30,

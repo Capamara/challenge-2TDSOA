@@ -1,7 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput, Image, Button, TouchableOpacity} from 'react-native';
+import  Icon  from 'react-native-vector-icons/AntDesign';
 
-export default function Signup(){
+
+export default function Signup({navigation}){
     return(
         <View style={style.main}>
             <View>
@@ -14,7 +16,7 @@ export default function Signup(){
                 <TextInput style={style.input} placeholder="Digite seu e-mail"/>
                 <TextInput style={style.input} placeholder="Digite sua senha"/>
                 <TextInput style={style.input} placeholder="Digite a senha novamente"/>
-                <TouchableOpacity style={style.botaoCadastro}>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.botaoCadastro}>
                     <Text style={{color:'#fff', fontSize: 16, textAlign: 'center'}}>Criar Conta</Text>
                 </TouchableOpacity>
             </View>
@@ -28,6 +30,7 @@ export default function Signup(){
                 </TouchableOpacity>
             </View>
         </View>
+        
     );
 }
 
@@ -86,5 +89,14 @@ const style = StyleSheet.create({
       padding: 10,
       backgroundColor: '#FDBFA8'
     },
-    
+    bar: {
+      flexDirection:'row',
+      justifyContent:'space-between',
+      alignItems:'center',
+      width:'100%',
+    },
+    iconStyle:{
+        fontSize:40,
+        color:'grey'
+    }
 });

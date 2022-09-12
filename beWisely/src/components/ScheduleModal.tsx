@@ -20,11 +20,7 @@ export const ScheduleModal = () => {
           <View style={styles.modalView}>
             <Text style={styles.title}>Summary</Text>
             <Text style={styles.body}>1x Aula particular com o monitor
-              H. Romeu Pinto, sobre lógica de programação das 14:00h às 16:00h no dia 27/07/2022</Text>
-            {/* <Text>1x Aula particular com o monitor
-              {monitorName}, sobre lógica de programação das {lessonStart} às {lessonEnd} no dia {lessonDate}
-              </Text>
-              <Text>R${lessonPrice}</Text> */}
+              João Pedro, sobre lógica de programação das 14:00h às 16:00h no dia 27/07/2022</Text>
             <Text style={styles.price}>total: R$ 120,00</Text>
             <View style={styles.container}>
               <Pressable

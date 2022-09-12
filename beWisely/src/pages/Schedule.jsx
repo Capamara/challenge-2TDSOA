@@ -11,7 +11,7 @@ import Checkbox from 'expo-checkbox';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 // a página deve conter um texto de "agende sua aula" abaixo um card com um icon o nome do professor e estrelas de avaliação. abaixo um input com icon de calendario onde o usuario pode selecionar a data. abaixo um input com icon de relogio onde o usuario pode selecionar o horario. abaixo um input com icon de local onde o usuario pode selecionar o local. abaixo um botão com o texto "agendar aula"
-export const Schedule = () => {
+export const Schedule = ({navigation}) => {
   const [date, setDate] = useState(new Date())
   console.log(date)
   const [isSelected, setSelection] = useState(false);
@@ -42,9 +42,7 @@ export const Schedule = () => {
         <View style={styles.card}>
           <View style={styles.cardHeader}>
             <Image
-              source={{
-                uri: 'https://avatars.githubusercontent.com/u/61664184?v=4',
-              }}
+              source={require('../../assets/profilePic.png')}
               style={styles.avatar}
             />
             <View style={styles.info}>
@@ -102,15 +100,15 @@ export const Schedule = () => {
             </View>
           </View>
         </View>
-        <ScheduleModal />
+        <ScheduleModal/>
       </View>
-      <View style={styles.containerBottom} >
-        <Icon style={styles.iconStyle} name="hearto"></Icon>
-        <Icon style={styles.iconStyle} name="bars"></Icon>
-        <Icon style={styles.iconStyle} name="user"></Icon>
-        <Icon style={styles.iconStyle} name="search1"></Icon>
-        <Icon style={styles.iconStyle} name="wallet"></Icon>
-      </View>
+      <View style={styles.bar}>
+            <Icon style ={styles.iconStyle} name="hearto"></Icon>
+            <Icon style ={styles.iconStyle} name="bars"></Icon>
+            <Icon onPress={() => navigation.navigate('Profile')} style ={styles.iconStyle} name="user"></Icon>
+            <Icon style ={styles.iconStyle} name="search1"></Icon>
+            <Icon style ={styles.iconStyle} name="wallet"></Icon>
+        </View>
     </SafeAreaView>
   )
 }
@@ -163,8 +161,6 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    borderWidth: 4,
-    borderColor: '#fff',
   },
   info: {
     marginLeft: 16,
@@ -229,5 +225,15 @@ const styles = StyleSheet.create({
   iconStyle: {
     fontSize: 50,
     color: 'grey'
+  },
+  bar: {
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:'100%',
+  },
+  iconStyle:{
+      fontSize:40,
+      color:'grey'
   }
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput, Image, Button, TouchableOpacity} from 'react-native';
 
-export default function Login(){
+export default function Login({navigation}){
     return(
         <View style={style.main}>
           <View>
@@ -12,7 +12,7 @@ export default function Login(){
           <View>
               <TextInput style={style.input} placeholder="Digite o nome de usuário"/>
               <TextInput style={style.input} placeholder="Digite sua senha"/>
-              <TouchableOpacity style={style.botao}>
+              <TouchableOpacity onPress={() => navigation.navigate('Schedule')} style={style.botao}>
                 <Text style={{color:'#fff', fontSize: 16, textAlign: 'center'}}>Entrar</Text>
               </TouchableOpacity>
           </View>
@@ -53,8 +53,8 @@ const style = StyleSheet.create({
         letterSpacing: 2
     },
     imagemLogo:{
-      width:30, 
-      height: 30,
+      width:100, 
+      height: 100,
       alignSelf: 'center'
     },
     input:{

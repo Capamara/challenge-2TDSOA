@@ -6,8 +6,6 @@ import bannerLogo from '../../../assets/icons/Group26.png'
 import pencilLogo from '../../../assets/icons/Group25.png'
 import Icon from "react-native-vector-icons/Entypo";
 
-const width = Dimensions.get("screen").width
-
 export default function ProfileName() {
     return <>
     <View style={estilos.divTopo}>
