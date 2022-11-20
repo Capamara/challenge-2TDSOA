@@ -20,7 +20,7 @@ export default function() {
         <Image source={pencilLogo} style={estilos.logoPencil}/>
     </View>
     <View style={estilos.divName}>
-        <Text style={estilos.name}>João Pedro</Text>
+        <Text style={estilos.name}>{ usuario.nome}</Text>
         <View style={estilos.divLocation}>
             <Icon name="location-pin" size={20}></Icon>
             <Text>São Paulo, Brasil</Text>

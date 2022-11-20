@@ -9,7 +9,7 @@ export default function Welcome({navigation}) {
       <Text style={welcomeStyles.header}>Aprenda ou ensina de maneira prática e fácil</Text>
       {<Image source={WelcomeImage} style={welcomeStyles.image}/>}
       <Text style={welcomeStyles.description}>Seja aluno ou professor, a BeWisely vai te ajudar a alcançar seus objetivos</Text>
-      <Icon onPress={() => navigation.navigate('Signup')} size={30}style={welcomeStyles.iconStyle}name='right'></Icon>
+      <Icon onPress={() => navigation.navigate('Login')} size={30}style={welcomeStyles.iconStyle}name='right'></Icon>
       <StatusBar style="auto" />
     </View>
   </>

@@ -19,8 +19,7 @@ export const ScheduleModal = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.title}>Summary</Text>
-            <Text style={styles.body}>1x Aula particular com o monitor
-              João Pedro, sobre lógica de programação das 14:00h às 16:00h no dia 27/07/2022</Text>
+            <Text style={styles.body}>1x Aula particular com o monitor {usuario.professorSelecionado}, sobre lógica de programação das 14:00h às 16:00h no dia 27/07/2022</Text>
             <Text style={styles.price}>total: R$ 120,00</Text>
             <View style={styles.container}>
               <Pressable

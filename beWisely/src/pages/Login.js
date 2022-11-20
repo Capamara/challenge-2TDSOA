@@ -1,7 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {StyleSheet, Text, View, TextInput, Image, Button, TouchableOpacity} from 'react-native';
+import api from '../components/Api/api'
 
 export default function Login({navigation}){
+
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+
+    const onRequest = async () => {
+
+
+      try {
+        
+        if(typeof usuario == "undefined"){
+
+          alert("Email ou senha estão inválidos");
+        }else{
+          
+          navigation.navigate('ClassList')
+          // const {data} = await api.post('usuario', { ...this.usuario });
+        }
+
+        // usuario = {
+        //   email: email,
+        //   senha: senha,
+        // }
+  
+  
+      } catch (error) {
+  
+        console.log(error)
+        
+      }
+  
+    }
+
     return(
         <View style={style.main}>
           <View>
@@ -10,22 +43,22 @@ export default function Login({navigation}){
           </View>
 
           <View>
-              <TextInput style={style.input} placeholder="Digite o nome de usuário"/>
-              <TextInput style={style.input} placeholder="Digite sua senha"/>
-              <TouchableOpacity onPress={() => navigation.navigate('Schedule')} style={style.botao}>
+              <TextInput onChangeText={setEmail} style={style.input} placeholder="Digite o email do usuário"/>
+              <TextInput onChangeText={setSenha} style={style.input} placeholder="Digite sua senha"/>
+              <TouchableOpacity onPress={() => onRequest()} style={style.botao}>
                 <Text style={{color:'#fff', fontSize: 16, textAlign: 'center'}}>Entrar</Text>
               </TouchableOpacity>
           </View>
 
           <View>
-            <TouchableOpacity style={style.botaoCadastro}>
-              <Text style={{color:'#fff', fontSize: 16, textAlign: 'center'}}>Criar Conta</Text>
+            <TouchableOpacity style={style.botaoCadastro} onPress={ () => navigation.navigate('Signup')}>
+              <Text style={{color:'#fff', fontSize: 16, textAlign: 'center'}}>Criar uma Conta!</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={style.botaoGoogle}>
+            {/* <TouchableOpacity style={style.botaoGoogle}>
               <Image source={require('../../assets/google.png')} style={style.logoGoogle}/>
               <Text style={{color:'#4C4C61', fontSize: 16}}>Entrar com Google</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
     );

@@ -10,35 +10,32 @@ import { ScheduleModal } from '../components/ScheduleModal';
 import Checkbox from 'expo-checkbox';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-// a página deve conter um texto de "agende sua aula" abaixo um card com um icon o nome do professor e estrelas de avaliação. abaixo um input com icon de calendario onde o usuario pode selecionar a data. abaixo um input com icon de relogio onde o usuario pode selecionar o horario. abaixo um input com icon de local onde o usuario pode selecionar o local. abaixo um botão com o texto "agendar aula"
-export const Schedule = ({navigation}) => {
-  const [date, setDate] = useState(new Date())
-  console.log(date)
-  const [isSelected, setSelection] = useState(false);
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate;
-    setDate(currentDate);
-  };
-  const showMode = (currentMode) => {
-    DateTimePickerAndroid.open({
-      value: date,
-      onChange,
-      mode: currentMode,
-      is24Hour: true,
-    });
-  };
-  const showDatepicker = () => {
-    showMode('date');
-  };
 
-  const showTimepicker = () => {
-    showMode('time');
-  };
+// a página deve conter um texto de "agende sua aula" abaixo um card com um icon o nome do professor e estrelas de avaliação. abaixo um input com icon de calendario onde o usuario pode selecionar a data. abaixo um input com icon de relogio onde o usuario pode selecionar o horario. abaixo um input com icon de local onde o usuario pode selecionar o local. abaixo um botão com o texto "agendar aula"
+export default function ClassList({navigation}) {
+
+  const ShowSchedule = (nome, rating) => {
+
+    try{
+      usuario = {
+        nome: usuario.nome,
+        professorSelecionado: nome,
+        rating: rating,
+      }
+      console.log(usuario)
+      navigation.navigate('Schedule')
+    } catch (error) {
+
+      console.log(error)
+      
+    }
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View >
-        <Text style={styles.title}>Agende sua aula</Text>
-        <Text style={styles.subtitle}>Professor(a)</Text>
+        <Text style={styles.title}>Escolha um Professor(a)</Text>
+        <TouchableOpacity onPress={() => ShowSchedule("João Pedro", 3.5)}>
         <View style={styles.card}>
           <View style={styles.cardHeader}>
             <Image
@@ -46,12 +43,12 @@ export const Schedule = ({navigation}) => {
               style={styles.avatar}
             />
             <View style={styles.info}>
-              <Text style={styles.name}>{usuario.professorSelecionado}</Text>
+              <Text style={styles.name}>João Pedro</Text>
               <View style={styles.stars}>
                 <Rating
                   type='star'
                   ratingCount={5}
-                  startingValue={usuario.rating}
+                  startingValue={3.5}
                   imageSize={15}
                   readonly
                 // onFinishRating={this.ratingCompleted}
@@ -59,48 +56,54 @@ export const Schedule = ({navigation}) => {
               </View>
             </View>
           </View>
-          <View style={styles.cardContent}>
-            <View style={styles.input}>
-              <Calendar accessibilityLabel='Calendar' color="#c1bccc" height={16} width={16} />
-              <TextInput style={styles.inputText}
-                onTouchStart={showDatepicker}
-                placeholder="Data da aula"
-                placeholderTextColor="#c1bccc" />
-            </View>
-            <View style={styles.input}>
-              <Clock accessibilityLabel='Horário de início' color="#c1bccc" height={16} width={16} />
-              <TextInput style={styles.inputText}
-                onTouchStart={showTimepicker}
-                placeholder="Horário de início"
-                placeholderTextColor="#c1bccc" />
-            </View>
-            <View style={styles.input}>
-              <Clock accessibilityLabel='Horário de término' color="#c1bccc" height={16} width={16} />
-              <TextInput
-                style={styles.inputText}
-                onTouchStart={showTimepicker}
-                placeholder="Horário de término"
-                placeholderTextColor="#c1bccc"
-              />
-            </View>
-            <View style={styles.input}>
-              <Book accessibilityLabel='Horário de término' color="#c1bccc" height={16} width={16} />
-              <TextInput
-                style={styles.inputText}
-                placeholder="Tema da aula"
-                placeholderTextColor="#c1bccc" />
-            </View>
-            <View style={styles.input}>
-              <Checkbox
-                value={isSelected}
-                onValueChange={setSelection}
-                color={isSelected ? '#4630EB' : undefined}
-              />
-              <Text style={styles.inputCheckboxText} >Aula particular?</Text>
+        </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => ShowSchedule("Gabriel Capivara", 1.3)}>
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <Image
+              source={require('../../assets/profilePic.png')}
+              style={styles.avatar}
+            />
+            <View style={styles.info}>
+              <Text style={styles.name}>Gabriel Capivara</Text>
+              <View style={styles.stars}>
+                <Rating
+                  type='star'
+                  ratingCount={5}
+                  startingValue={1.3}
+                  imageSize={15}
+                  readonly
+                // onFinishRating={this.ratingCompleted}
+                />
+              </View>
             </View>
           </View>
         </View>
-        <ScheduleModal/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => ShowSchedule("Caio Ioda", 5)}>
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <Image
+              source={require('../../assets/profilePic.png')}
+              style={styles.avatar}
+            />
+            <View style={styles.info}>
+              <Text style={styles.name}>Caio Ioda</Text>
+              <View style={styles.stars}>
+                <Rating
+                  type='star'
+                  ratingCount={5}
+                  startingValue={5}
+                  imageSize={15}
+                  readonly
+                // onFinishRating={this.ratingCompleted}
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.bar}>
             <Icon style ={styles.iconStyle} name="hearto"></Icon>
@@ -108,7 +111,7 @@ export const Schedule = ({navigation}) => {
             <Icon onPress={() => navigation.navigate('Profile')} style ={styles.iconStyle} name="user"></Icon>
             <Icon onPress={() => navigation.navigate('ClassList')} style ={styles.iconStyle} name="search1"></Icon>
             <Icon style ={styles.iconStyle} name="wallet"></Icon>
-        </View>
+      </View>
     </SafeAreaView>
   )
 }
@@ -116,7 +119,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     padding: 40,
     alignItems: 'center',
   },
@@ -235,5 +238,5 @@ const styles = StyleSheet.create({
   iconStyle:{
       fontSize:40,
       color:'grey'
-  }
+  },
 });

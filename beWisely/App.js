@@ -3,6 +3,7 @@ import Profile from './src/pages/Profile/Profile';
 import Welcome from './src/pages/Welcome';
 import Signup from './src/pages/Signup';
 import Login from './src/pages/Login';
+import ClassList from './src/pages/ClassList';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Schedule } from './src/pages/Schedule';
@@ -36,6 +37,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Schedule" component={Schedule}/>
         <Stack.Screen name="Profile" component={Profile}/>
+        <Stack.Screen name="ClassList" component={ClassList}/>
       </Stack.Navigator>
     </NavigationContainer>
     </>

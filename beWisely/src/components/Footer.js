@@ -8,7 +8,7 @@ export default function Footer({navigation}) {
         <Icon style ={footerStyle.iconStyle} name="hearto"></Icon>
         <Icon style ={footerStyle.iconStyle} name="bars"></Icon>
         <Icon onPress={() => navigation.navigate('Profile')} style ={footerStyle.iconStyle} name="user"></Icon>
-        <Icon style ={footerStyle.iconStyle} name="search1"></Icon>
+        <Icon onPress={() => navigation.navigate('ClassList')} style ={footerStyle.iconStyle} name="search1"></Icon>
         <Icon style ={footerStyle.iconStyle} name="wallet"></Icon>
       <StatusBar style="auto" />
     </View>

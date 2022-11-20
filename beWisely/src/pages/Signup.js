@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {StyleSheet, Text, View, TextInput, Image, Button, TouchableOpacity} from 'react-native';
 import  Icon  from 'react-native-vector-icons/AntDesign';
+import api from '../components/Api/api';  
+
+export default function Signup({navigation}) {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [senhaRepetida, setSenhaRepetida] = useState("");
+
+  const onRequest = async () => {
 
 
-export default function Signup({navigation}){
+    try {
+
+      usuario = {
+        nome: name,
+        email: email,
+        senha: senha,
+        professor: false,
+        aluno: true,
+        // aulasAssistidas: 12,
+        // status: true,
+        // dataDeCadastro: "2012-12-20",
+        // dataDaUltimaAtualizacao: "2022-11-29"
+      }
+
+      // const {data} = await api.post('usuario/registrar', { ...this.usuario });
+      // console.log(data);
+      navigation.navigate('Login')
+
+    } catch (error) {
+
+      console.log(error)
+      
+    }
+
+  }
+
+    // () => navigation.navigate('Login')
+
     return(
         <View style={style.main}>
             <View>
@@ -12,11 +49,11 @@ export default function Signup({navigation}){
             </View>
 
             <View>
-                <TextInput style={style.input} placeholder="Digite seu nome completo"/>
-                <TextInput style={style.input} placeholder="Digite seu e-mail"/>
-                <TextInput style={style.input} placeholder="Digite sua senha"/>
-                <TextInput style={style.input} placeholder="Digite a senha novamente"/>
-                <TouchableOpacity onPress={() => navigation.navigate('Login')} style={style.botaoCadastro}>
+                <TextInput onChangeText={setName} style={style.input} placeholder="Digite seu nome completo"/>
+                <TextInput onChangeText={setEmail} style={style.input} placeholder="Digite seu e-mail"/>
+                <TextInput onChangeText={setSenha} style={style.input} placeholder="Digite sua senha"/>
+                <TextInput onChangeText={setSenhaRepetida} style={style.input} placeholder="Digite a senha novamente"/>
+                <TouchableOpacity onPress={() => onRequest()} style={style.botaoCadastro}>
                     <Text style={{color:'#fff', fontSize: 16, textAlign: 'center'}}>Criar Conta</Text>
                 </TouchableOpacity>
             </View>
@@ -24,9 +61,12 @@ export default function Signup({navigation}){
             <View></View>
 
             <View>
-                <TouchableOpacity style={style.botaoGoogle}>
+                {/* <TouchableOpacity style={style.botaoGoogle}>
                 <Image source={require('../../assets/google.png')} style={style.logoGoogle}/>
                 <Text style={{color:'#4C4C61', fontSize: 16}}>Registrar com Google</Text>
+                </TouchableOpacity> */}
+                <TouchableOpacity style={style.botao} onPress={ () => navigation.navigate('Login')}>
+                  <Text style={{color:'#fff', fontSize: 16, textAlign: 'center'}}>Já é cadastrado? Faça Login!</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -45,7 +85,8 @@ const style = StyleSheet.create({
       borderRadius: 10,
       marginTop: 20,
       padding: 10,
-      backgroundColor: '#FEDB81'
+      backgroundColor: '#FEDB81',
+      marginTop: 150,
     },
     texto:{
         textAlign: 'center',

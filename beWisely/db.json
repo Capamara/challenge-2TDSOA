@@ -1,0 +1,28 @@
+{
+  "usuario": [
+      {
+          "id" : 1,
+          "nome": "Vinicius Figueiredo",
+          "email": "viniciufa@gmail.com",
+          "senha": "123",
+          "professor": false,
+          "aluno": true,
+          "aulasAssistidas": 12,
+          "status": true,
+          "dataDeCadastro": "2012-12-20",
+          "dataDaUltimaAtualizacao": "2022-11-29"
+      },
+      {
+          "id" : 2,
+          "nome": "Caio Oda",
+          "email": "kaiu@gmail.com",
+          "senha": "123",
+          "professor": true,
+          "aluno": false,
+          "aulasAssistidas": 10,
+          "status": true,
+          "dataDeCadastro": "2013-10-10",
+          "dataDaUltimaAtualizacao": "2022-09-05"
+      }
+  ]
+}
